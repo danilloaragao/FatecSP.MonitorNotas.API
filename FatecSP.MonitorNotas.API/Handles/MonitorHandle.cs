@@ -1,5 +1,6 @@
 ﻿using FatecSP.MonitorNotas.API.Interfaces;
 using FatecSP.MonitorNotas.API.Models;
+using Microsoft.VisualStudio.Threading;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,19 +28,18 @@ namespace FatecSP.MonitorNotas.API.Handles
             this.Crawler.SetCredenciais(credenciais);
             this.Notas = this.Crawler.PegarNotas();
 
-            //Método asíncrono chamado sem o await para continuar rodando mesmo após a resposta da API
             MonitorarNotas();
 
             return Notas;
         }
 
-        private async Task<bool> MonitorarNotas()
+        private async void MonitorarNotas()
         {
+            await Task.Delay(1);
             int contagemFalhas = 0;
 
             while (!VerificaNotasLancadas())
             {
-
                 try
                 {
                     List<Materia> notasAtuais = Crawler.PegarNotas();
@@ -67,9 +67,8 @@ namespace FatecSP.MonitorNotas.API.Handles
                         throw;
                 }
                 int intervaloVerificacao = 30;
-                Thread.Sleep(intervaloVerificacao * 60 * 1000);
+                await Task.Delay(intervaloVerificacao * 60 * 1000);
             }
-            return true;
         }
 
         private bool VerificaNotasLancadas()
