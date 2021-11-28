@@ -39,9 +39,9 @@ namespace FatecSP.MonitorNotas.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FatecSP.MonitorNotas.API v1"));
-            }
 
             app.UseHttpsRedirection();
 
