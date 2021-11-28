@@ -29,7 +29,7 @@ namespace FatecSP.MonitorNotas.API
             services.AddScoped<IEmailService, EmailService>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FatecSP.MonitorNotas.API", Version = "v1" , Description = "Essa aplicação serve para monitorar as notas de qualquer curso no portal do aluno da FATEC SP, enviando as notas para o e-mail inserido, conforme forem sendo disponibilizadas.<br>A aplicação verifica o portal a cada meia hora, caso tenha alguma nota nova, um e-mail é disparado.<br>\rEntre meia noite e meia noite e meia, um e-mail é disparado, indicando que o monitor ainda está ativo.<br>Nenhuma informação é gravada em banco de dados, as credenciais são mantidas em memória enquanto a aplicação estiver monitorando as notas.<br><br>Para utilizar, basta clicar em \"Monitor\", depois em \"Try it out\", preencher os campos e clicar em \"Execute\".<br><br>O código dessa aplicação está disponível no repositório: https://github.com/danilloaragao/FatecSP.MonitorNotas.API" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FatecSP.MonitorNotas.API", Version = "v1" , Description = "Essa aplicaÃ§Ã£o serve para monitorar as notas de qualquer curso no portal do aluno da FATEC SP, enviando as notas para o e-mail inserido, conforme forem sendo disponibilizadas.<br>A aplicaÃ§Ã£o verifica o portal a cada meia hora, caso tenha alguma nota nova, um e-mail Ã© disparado.<br>\rEntre meia noite e meia noite e meia, um e-mail Ã© disparado, indicando que o monitor ainda estÃ¡ ativo.<br>Nenhuma informaÃ§Ã£o Ã© gravada em banco de dados, as credenciais sÃ£o mantidas em memÃ³ria enquanto a aplicaÃ§Ã£o estiver monitorando as notas.<br><br>Para utilizar, basta clicar em \"Monitor\", depois em \"Try it out\", preencher os campos e clicar em \"Execute\".<br><br>O cÃ³digo dessa aplicaÃ§Ã£o estÃ¡ disponÃ­vel no repositÃ³rio: https://github.com/danilloaragao/FatecSP.MonitorNotas.API" });
             });
         }
 
@@ -48,9 +48,6 @@ namespace FatecSP.MonitorNotas.API
             app.UseRouting();
 
             app.UseAuthorization();
-
-            app.UseStaticFiles();
-
 
             app.UseEndpoints(endpoints =>
             {
